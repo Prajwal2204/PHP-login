@@ -8,39 +8,43 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">  
+    <link rel="stylesheet" href="styles-header.css">  
   </head>
-    
-  <body class = "signin-body">
-    <div class = "container signin-container"><!--container = center, container-fluid = "100% width-->
-        <div class = "row">
-            <div class = "col"></div>
-            <div class = "col-sm-12 col-md-8">
-                <div class="card signin-card">
-                    <div class="card-block signin-card-block">
-                        <img src = "img/img2.PNG" class = "img-fluid signin-img"><!--img-fluid is a ready made class for responsive images to force image to fit inside its parent-->
-                        <form action = "includes/login.php" method = "post">
-                              <div class="form-group">
-                                    <input type="email" class="form-control" id="emailInput" placeholder="Email">
-                              </div>
-                              <div class="form-group">
-                                    <input type="password" class="form-control" id="passwordInput" placeholder="Password">
-                              </div>
-                            <button type="button" class="btn signin-btn btn-lg">Sign In</button>
-                            <div class="form-check">
-                                  <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox"> Remember Me
-                                  </label>
-                            </div>
-                             <a href = "" class = "help">Need Help?</a>
-                        </form>
-                    </div>
-                </div>
-                <a href = "includes/signup.php" class = "newAccount">Sign Up</a>
+  <body>
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">"Logo"</a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>  
+                    </li>  
+                </ul>
+                <ul class = "nav navbar-nav navbar-right">
+                    <li class = "nav-item">
+                        <button class = "btn btn-outline-success my-2 my-sm-0">Logout</button>
+                    </li>
+                </ul>
             </div>
-            <div class = "col"></div><!--even spacing, hence just col-->
-        </div>
-    </div>
+        </nav>
       
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
