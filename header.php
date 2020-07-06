@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles-header.css">  
+    <link rel="stylesheet" href="styles/styles-header.css">  
   </head>
   <body>
         <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
