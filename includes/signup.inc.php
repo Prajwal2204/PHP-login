@@ -7,14 +7,13 @@
         
         $name = $_POST['nam'];
         $username = $_POST['uname'];
-        $phoneNumber = $_POST['phone'];
         $email = $_POST['email'];
         $password = $_POST['pwd'];
         $passwordRepeat = $_POST['pwd-repeat'];
         
-        if(empty($username) || empty($name) || empty($phoneNumber) || empty($email) || empty($password) || empty($passwordRepeat)){
+        if(empty($username) || empty($name) || empty($email) || empty($password) || empty($passwordRepeat)){
             /*empty fields, show error*/
-            header("Location: ../signup.html?error=emptyfields&name".$name."&uname=".$username."&phone=".$phoneNumber."&email".$email);
+            header("Location: ../signup.html?error=emptyfields&name".$name."&uname=".$username."&email".$email);
             exit();/*stops script from running cuz of the mistake*/
         }
         else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
@@ -24,7 +23,7 @@
         }
         else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             /*checks if its a legit email*/
-            header("Location: ../signup.html?error=invalidMail&name".$name."&uname=".$username."&phone=".$phoneNumber);
+            header("Location: ../signup.html?error=invalidMail&name".$name."&uname=".$username);
             exit();
         }
         else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
@@ -33,7 +32,7 @@
             exit();
         }
         else if($password != $passwordRepeat){
-            header("Location: ../signup.html?error=passwordCheck&name".$name."&uname=".$username."&phone=".$phoneNumber."&email".$email);
+            header("Location: ../signup.html?error=passwordCheck&name".$name."&uname=".$username."&email".$email);
             exit();
         }
         else{
@@ -55,7 +54,7 @@
                 }
                 else{
                     // insert into db, succesfull login
-                    $sql = "INSERT into users(nameUsers, usernameUsers, phoneUsers, emailUsers, pwdUSers) VALUES(?, ?, ?, ?, ?)"; 
+                    $sql = "INSERT into users(nameUsers, usernameUsers, emailUsers, pwdUSers) VALUES(?, ?, ?, ?)"; 
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)){
                         header("Location: ../signup.html?error=sqlError&name".$name."&email".$email);
@@ -64,7 +63,7 @@
                     else{
                         /*password hashing*/
                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                        mysqli_stmt_bind_param($stmt, "ssiss", $name, $username, $phoneNumber, $email, $hashedPwd); /*sends info to db*/
+                        mysqli_stmt_bind_param($stmt, "ssss", $name, $username, $email, $hashedPwd); /*sends info to db*/
                         mysqli_stmt_execute($stmt);/*runs info in the db and checks for match*/
                         header("Location: ../signup.html?signup=success");
                         exit();
