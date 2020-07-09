@@ -19,7 +19,7 @@
                 <div class="card signin-card">
                     <div class="card-block signin-card-block">
                         <img src = "img/img2.PNG" class = "img-fluid signin-img"><!--img-fluid is a ready made class for responsive images to force image to fit inside its parent-->
-                        <form id = "signin-form" action = "includes/signup.php" method = "post">
+                        <form id = "signin-form" action = "includes/signup.inc.php" method = "post">
                             <p style = "text-align:center; font-size:22px">Enter Details</p>
                             <div class="form-group">
                                     <input type="text" class="form-control" id="nameInput" name = "nam" placeholder="Full Name">
@@ -39,7 +39,7 @@
                             <div class="form-group">
                                     <input type="password" class="form-control" id="passwordInputRepeat" name = "pwd-repeat" placeholder="Re-Enter Password">
                               </div>
-                            <button type="button" name = "signup-submit" class="btn signin-btn btn-lg">Sign Up</button>
+                            <button type="submit" name = "signup-submit" class="btn signin-btn btn-lg">Sign Up</button>
                             <div class="form-check">
                                   <label class="form-check-label">
                                         <input class="form-check-input" type="checkbox"> Remember Me
