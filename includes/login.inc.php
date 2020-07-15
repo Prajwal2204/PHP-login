@@ -32,7 +32,7 @@
                         $_SESSION['userId'] = $row['idUsers'];
                         $_SESSION['userUsername'] = $row['usernameUsers'];
                         
-                        header("Location: ../login.html?login=success");
+                        header("Location: ../index.php?login=success");
                         exit();
                     }
                     else{

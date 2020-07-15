@@ -44,7 +44,7 @@
                 </ul>
                 <ul class = "nav navbar-nav navbar-right">
                     <li class = "nav-item">
-                        <button class = "btn btn-outline-success my-2 my-sm-0">Logout</button>
+                        <button name = "logout-submit" type = "submit" class = "btn btn-outline-success my-2 my-sm-0">Logout</button>
                     </li>
                 </ul>
             </div>
