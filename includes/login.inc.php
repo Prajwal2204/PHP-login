@@ -21,8 +21,24 @@
                 mysqli_stmt_bind_param($stmt, "ss", $mailuid, $mailuid);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
-                if($result > 0){
-                    $pwdCheck = password_verify($password);
+                if($row = mysqli_fetch_assoc($result)){
+                    $pwdCheck = password_verify($password, $row['pwdUSers']);
+                    if($pwdCheck == false){
+                        header("Location: ../login.html?error=wrongPwd&mailuid=".$mailuid);
+                        exit();
+                    }
+                    else if($pwdCheck == true){
+                        session_start();
+                        $_SESSION['userId'] = $row['idUsers'];
+                        $_SESSION['userUsername'] = $row['usernameUsers'];
+                        
+                        header("Location: ../login.html?login=success");
+                        exit();
+                    }
+                    else{
+                        header("Location: ../login.html?error=wrongPwd&mailuid=".$mailuid);
+                        exit();
+                    }
                 }
                 else{
                     header("Location: ../login.html?error=noUser&mailuid=".$mailuid);
